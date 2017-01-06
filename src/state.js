@@ -3,7 +3,7 @@ import reducers from './reducers'
 let initialState = {
     issues: [],
     // repository: {},
-    counter: 0
+    counter: 6
 };
 
 const store = createStore(reducers, {} );

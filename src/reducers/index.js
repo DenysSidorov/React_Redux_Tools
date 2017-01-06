@@ -3,7 +3,7 @@ import counterReducer from './counter';
 import issuesReducer from './issues';
 
 const reducers = combineReducers({
-    counterReducer,
-    issuesReducer
+    counter : counterReducer,
+    issues : issuesReducer
 });
 export default reducers;
