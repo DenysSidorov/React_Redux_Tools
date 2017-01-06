@@ -47,7 +47,9 @@
     "isomorphic-fetch": "^2.2.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
+    "react-redux": "^5.0.1",
     "redux": "^3.6.0",
-    "redux-logger": "^2.7.4"
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0"
   }
 }

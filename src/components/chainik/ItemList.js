@@ -1,6 +1,8 @@
 // http://blog.zacorp.ru/frontend/redux-i-thunk-vmeste-react-rukovodstvo-dlya-chajnikov/
 import fetch from 'isomorphic-fetch';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { itemsFetchData } from './actions/items';
 // items: [
 //     {id: 1,label: 'List item 1'},
 //     {id: 2,label: 'List item 2'}, {id: 3,label: 'List item 3'}, {id: 4,label: 'List item 4'}
@@ -52,8 +54,8 @@ class ItemList extends Component {
 
         return (
             <ul>
-                {this.state.items.map((item) => (
-                    <li key={item.id}>
+                {this.state.items.map((item, index) => (
+                    <li key={index}>
                         {item.label}
                     </li>
                 ))}
@@ -61,5 +63,17 @@ class ItemList extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        items: state.items,
+        hasErrored: state.itemsHasErrored,
+        isLoading: state.itemsIsLoading
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(itemsFetchData(url))
+    };
+};
 
-export default ItemList;
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList);

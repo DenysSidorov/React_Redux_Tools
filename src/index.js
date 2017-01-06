@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
 import App from "./App";
 import store from "./store";
 
@@ -29,7 +30,6 @@ import ItemList from './components/chainik/ItemList'; // chainik blog
 // console.log(changeFu(myObj), ' не оригинал');
 
 
-
 store.subscribe(()=> console.log(store.getState()));
 store.dispatch({type: 'INCREMENT_COUNTER'});
 store.dispatch({type: 'INCREMENT_COUNTER'});
@@ -38,5 +38,10 @@ store.dispatch({type: 'RESET_COUNTER'});
 store.dispatch({type: 'LOAD_USSUES', payload: [{id: 1, name: 'Den'}, {id: 2, name: 'Viiii'}]});
 
 // App
-ReactDOM.render(<ItemList/>, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <ItemList />
+    </Provider>,
+    document.getElementById('root'));
+
 

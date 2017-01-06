@@ -8,6 +8,8 @@ const reducers = combineReducers({
     issues : issuesReducer,
     items,
     itemsHasErrored,
-    itemsIsLoading
+    itemsIsLoading,
+    counter2: ()=> 2
 });
+
 export default reducers;
