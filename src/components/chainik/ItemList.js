@@ -1,5 +1,5 @@
 // http://blog.zacorp.ru/frontend/redux-i-thunk-vmeste-react-rukovodstvo-dlya-chajnikov/
-import fetch from 'isomorphic-fetch';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { itemsFetchData } from './actions/items';
@@ -8,53 +8,22 @@ import { itemsFetchData } from './actions/items';
 //     {id: 2,label: 'List item 2'}, {id: 3,label: 'List item 3'}, {id: 4,label: 'List item 4'}
 // ],
 class ItemList extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            items: [],
-            hasErrored: false,
-            isLoading: false
-        };
-    }
     componentDidMount() {
-        this.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
-    }
-    fetchData(url) {
-        this.setState({ isLoading: true });
-
-
-        setTimeout( ()=> {
-            fetch(url)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw Error(response.statusText);
-                    }
-
-                    this.setState({ isLoading: false });
-
-                    return response;
-                })
-                .then((response) => response.json())
-                .then((items) => {
-                    console.log(items);
-                    this.setState({ items })}) // ES6 property value shorthand for { items: items }
-                .catch(() => this.setState({ hasErrored: true }));
-        },300);
+        this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
     }
 
     render() {
-        if (this.state.hasErrored) {
+        if (this.props.hasErrored) {
             return <p>Sorry! There was an error loading the items</p>;
         }
 
-        if (this.state.isLoading) {
+        if (this.props.isLoading) {
             return <p>Loading…</p>;
         }
 
         return (
             <ul>
-                {this.state.items.map((item, index) => (
+                {this.props.items.map((item, index) => (
                     <li key={index}>
                         {item.label}
                     </li>
@@ -63,6 +32,8 @@ class ItemList extends Component {
         );
     }
 }
+
+
 const mapStateToProps = (state) => {
     return {
         items: state.items,
@@ -70,6 +41,7 @@ const mapStateToProps = (state) => {
         isLoading: state.itemsIsLoading
     };
 };
+
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchData: (url) => dispatch(itemsFetchData(url))
