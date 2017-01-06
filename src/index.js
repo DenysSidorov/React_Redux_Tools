@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import store from "./state";
+import store from "./store";
 
 // test
 // let myObj = {
