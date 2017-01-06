@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import store from "./store";
 
+import ItemList from './components/chainik/ItemList'; // chainik blog
+
 // test
 // let myObj = {
 //     issues: [1,2,3,4],
@@ -35,6 +37,6 @@ store.dispatch({type: 'INCREMENT_COUNTER'});
 store.dispatch({type: 'RESET_COUNTER'});
 store.dispatch({type: 'LOAD_USSUES', payload: [{id: 1, name: 'Den'}, {id: 2, name: 'Viiii'}]});
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
+// App
+ReactDOM.render(<ItemList/>, document.getElementById('root'));
 
