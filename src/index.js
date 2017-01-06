@@ -35,5 +35,6 @@ store.dispatch({type: 'INCREMENT_COUNTER'});
 store.dispatch({type: 'RESET_COUNTER'});
 store.dispatch({type: 'LOAD_USSUES', payload: [{id: 1, name: 'Den'}, {id: 2, name: 'Viiii'}]});
 
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
