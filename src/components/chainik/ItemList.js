@@ -11,7 +11,6 @@ class ItemList extends Component {
     componentDidMount() {
         this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
     }
-
     render() {
         if (this.props.hasErrored) {
             return <p>Sorry! There was an error loading the items</p>;
@@ -32,7 +31,6 @@ class ItemList extends Component {
         );
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {
