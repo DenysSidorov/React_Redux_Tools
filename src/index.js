@@ -5,6 +5,7 @@ import App from "./App";
 import store from "./store";
 import ItemList from "./components/chainik/ItemList"; // chainik blog
 
+import OffDoc from './components/officialDoc/';
 // test
 // let myObj = {
 //     issues: [1,2,3,4],
@@ -28,7 +29,7 @@ import ItemList from "./components/chainik/ItemList"; // chainik blog
 // console.log(myObj,  ' оригинал');
 // console.log(changeFu(myObj), ' не оригинал');
 
-const go =  (text) => dispatch => addTo(text);
+//const go =  (text) => dispatch => addTo(text);
 
 console.log(<App/>);
 
@@ -41,10 +42,14 @@ store.dispatch({type: 'LOAD_USSUES', payload: [{id: 1, name: 'Den'}, {id: 2, nam
 
 // App
 
-
 ReactDOM.render(
     <Provider store={store}>
-        <ItemList />
+        <div>
+            //////// Приложение 1 с офф док
+            <OffDoc/>
+            ///////// Приложение 2 на блоге быстрый перевод
+            <ItemList />
+        </div>
     </Provider>,
     document.getElementById('root'));
 
