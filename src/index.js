@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import App from "./App";
 import store from "./store";
-import ItemList from "./components/chainik/ItemList"; // chainik blog
+import ItemList from "./components/chainik/ItemList";
+import TaskList from "./components/7Video/TaskList";
+import OffDoc from "./components/officialDoc/"; // chainik blog
 
-import OffDoc from './components/officialDoc/';
 // test
 // let myObj = {
 //     issues: [1,2,3,4],
@@ -29,6 +30,7 @@ import OffDoc from './components/officialDoc/';
 // console.log(myObj,  ' оригинал');
 // console.log(changeFu(myObj), ' не оригинал');
 
+
 //const go =  (text) => dispatch => addTo(text);
 
 console.log(<App/>);
@@ -49,6 +51,8 @@ ReactDOM.render(
             <OffDoc/>
             ///////// Приложение 2 на блоге быстрый перевод
             <ItemList />
+            //////// 7 Видео по часу...
+            <TaskList text="Hello dear friend"/>
         </div>
     </Provider>,
     document.getElementById('root'));
