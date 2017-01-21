@@ -5,7 +5,7 @@ const initialState =  [
     ]
 
 export const TASK_TOGGLE = 'TASK_TOGGLE';
-
+console.log(5);
 export const toggle = (index)=> ( {type: TASK_TOGGLE, index: index});
 
 export default  (state = initialState, action)=> {
