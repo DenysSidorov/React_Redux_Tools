@@ -1,7 +1,7 @@
 const initialState =  [
-        {text: 'Learn JS', completed: true},
-        {text: 'Learn React', completed: false},
-        {text: 'Learn Redux', completed: true}
+        {text: 'Learn JS22', completed: true},
+        {text: 'Learn 22React', completed: false},
+        {text: 'Learn Redux22', completed: true}
     ]
 
 export const TASK_TOGGLE = 'TASK_TOGGLE';
@@ -19,7 +19,6 @@ export default  (state = initialState, action)=> {
                 // }))
         text: 'Learn Redux', completed: true
             }
-
 
         default:
             return state;
