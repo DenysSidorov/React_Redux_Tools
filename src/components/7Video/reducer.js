@@ -3,7 +3,7 @@ const initialState =  [
         {text: 'Learn 22React', completed: false},
         {text: 'Learn Redux22', completed: true}
     ]
-
+// Типа коммит сделал в мастере
 export const TASK_TOGGLE = 'TASK_TOGGLE';
 
 export const toggle = (index)=> ( {type: TASK_TOGGLE, index: index});
