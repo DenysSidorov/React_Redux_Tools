@@ -7,7 +7,7 @@ const initialState =  [
 export const TASK_TOGGLE = 'TASK_TOGGLE';
 
 export const toggle = (index)=> ( {type: TASK_TOGGLE, index: index});
-
+//c``
 export default  (state = initialState, action)=> {
     switch (action.type) {
         case TASK_TOGGLE:
