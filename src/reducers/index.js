@@ -1,7 +1,9 @@
 import {combineReducers} from "redux";
 import counterReducer from './counter';
 import issuesReducer from './issues';
+
 import { items, itemsHasErrored, itemsIsLoading } from '../components/chainik/reducers/items';
+
 import todos from '../components/officialDoc/reducers/todos';
 import visibilityFilter from '../components/officialDoc/reducers/visibilityFilter';
 import reducer7Video from '../components/7Video/reducer'
@@ -15,7 +17,6 @@ const reducers = combineReducers({
     items,
     itemsHasErrored,
     itemsIsLoading,
-
 
     todos,
     visibilityFilter

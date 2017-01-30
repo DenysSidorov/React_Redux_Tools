@@ -1,27 +1,23 @@
 const initialState =  [
-        {text: 'Learn JS22', completed: true},
-        {text: 'Learn 22React', completed: false},
-        {text: 'Learn Redux22', completed: true}
+        {text: 'Learn JS', completed: true},
+        {text: 'Learn React', completed: false},
+        {text: 'Learn Redux', completed: true}
     ]
-// Типа коммит сделал в мастере
+
 export const TASK_TOGGLE = 'TASK_TOGGLE';
 
 export const toggle = (index)=> ( {type: TASK_TOGGLE, index: index});
-//c``
+
 export default  (state = initialState, action)=> {
     switch (action.type) {
         case TASK_TOGGLE:
-            return {
-                // ...state,
-                // ...{state: state.map((task, i)=>({
-                //     ...task,
-                //     completed: i === action.index ? !task.completed : task.completed
-                // }))
-        text: 'Learn Redux', completed: true
-            }
+            return [
+                ...state.map((task, i)=>{
+                return {...task, ...{completed: i === action.index ? !task.completed : task.completed}}
+            })
+            ]
 
         default:
             return state;
     }
-    console.log(666);
 }

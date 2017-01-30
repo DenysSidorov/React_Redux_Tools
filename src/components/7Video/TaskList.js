@@ -19,7 +19,6 @@ class TaskList extends React.Component {
         this.props.doDo(i);
     }
 
-
     render() {
         const {text, tasks} = this.props;
         console.log(this.props);
@@ -36,6 +35,7 @@ class TaskList extends React.Component {
                         />)
                     )}
                 </ol>
+                {this.props.children}
             </div>
         )
     }

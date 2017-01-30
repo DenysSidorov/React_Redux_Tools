@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import {Provider} from "react-redux";
 import App from "./App";
 import store from "./store";
 import ItemList from "./components/chainik/ItemList";
 import TaskList from "./components/7Video/TaskList";
+import Task from "./routeComp/Task";
 import OffDoc from "./components/officialDoc/"; // chainik blog
-
+import Navigation from "./components/Navigation"
 // test
 // let myObj = {
 //     issues: [1,2,3,4],
@@ -35,7 +37,7 @@ import OffDoc from "./components/officialDoc/"; // chainik blog
 
 console.log(<App/>);
 
-store.subscribe(()=> console.log(store.getState()));
+store.subscribe(() => console.log(store.getState()));
 store.dispatch({type: 'INCREMENT_COUNTER'});
 store.dispatch({type: 'INCREMENT_COUNTER'});
 store.dispatch({type: 'INCREMENT_COUNTER'});
@@ -44,17 +46,23 @@ store.dispatch({type: 'LOAD_USSUES', payload: [{id: 1, name: 'Den'}, {id: 2, nam
 
 // App
 
+
 ReactDOM.render(
     <Provider store={store}>
-        <div>
-            //////// Приложение 1 с офф док
-            <OffDoc/>
-            ///////// Приложение 2 на блоге быстрый перевод
-            <ItemList />
-            //////// 7 Видео по часу...
-            <TaskList text="Hello dear friend"/>
-        </div>
+        <Router history={browserHistory}>
+            <Route path="/" component={Navigation}>
+                <Route path="/blog" component={ItemList}/>
+                <Route path="/off" component={OffDoc}/>
+                //////// 7 Видео по часу... text="Hello dear friend"
+                <Route path="/tasks/" component={TaskList}>
+                    <Route path="task/:taskId" component={Task}/>
+                </Route>
+                <Route path="*" component={() => <div>Error path, Sorry !</div>}/>
+            </Route>
+        </Router>
     </Provider>,
-    document.getElementById('root'));
+    document.getElementById('root')
+)
+;
 
 
